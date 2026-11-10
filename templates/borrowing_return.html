@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Return Book (Record # {{ rn }})</h2>
+<form method="post">
+ <label>Date Returned</label><input type="date" name="borReturn" required>
+ <p><button>Save</button> <a href="/borrowing">Cancel</a></p>
+</form>
+{% endblock %}

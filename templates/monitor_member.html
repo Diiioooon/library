@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Borrowing Monitoring (By Member)</h2>
+<form method="get">
+ Input Member #: <input type="number" name="mem_id" value="{{ mem_id }}">
+ <button>Search</button>
+</form>
+<a href="/">Back to Menu</a>
+<p class="err">{{ error }}</p>
+{% if mem %}
+<p>Name: {{ mem[2] }}, {{ mem[1] }} &nbsp;&nbsp; Contact: {{ mem[3] }}</p>
+<table>
+<tr><th>Record #</th><th>Book</th><th>Date Borrowed</th><th>Due Date</th><th>Date Returned</th><th>Status</th><th>Fine</th></tr>
+{% for r in records %}
+<tr><td>{{ r[0] }}</td><td>{{ r[2] }}</td><td>{{ r[3] }}</td><td>{{ r[4] }}</td><td>{{ r[5] }}</td><td>{{ r[6] }}</td><td>{{ r[7] }}</td></tr>
+{% endfor %}
+</table>
+<p>Total Books Borrowed: {{ total_books }}<br>Total Fine: P{{ total_fine }}</p>
+<p>Date Generated: {{ today }}</p>
+{% endif %}
+{% endblock %}

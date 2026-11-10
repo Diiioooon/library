@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Edit Book</h2>
+<form method="post">
+ <label>Book ID</label><input name="bookID" value="{{ b[0] }}" readonly>
+ <label>Title</label><input name="bookTitle" value="{{ b[1] }}" required>
+ <label>Author</label><input name="bookAuthor" value="{{ b[2] }}" required>
+ <label>Year Published</label><input type="number" name="bookYear" value="{{ b[3] }}">
+ <p><button>Save</button> <a href="/books">Cancel</a></p>
+</form>
+{% endblock %}

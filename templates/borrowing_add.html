@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Record Borrowing</h2>
+<p class="err">{{ error }}</p>
+<form method="post">
+ <label>Member</label>
+ <select name="memID">
+  {% for m in mems %}
+  <option value="{{ m[0] }}">{{ m[0] }} - {{ m[1] }}, {{ m[2] }}</option>
+  {% endfor %}
+ </select>
+ <label>Book</label>
+ <select name="bookID">
+  {% for b in bks %}
+  <option value="{{ b[0] }}">{{ b[0] }} - {{ b[1] }}</option>
+  {% endfor %}
+ </select>
+ <label>Date Borrowed</label><input type="date" name="borDate" required>
+ <p><button>Save</button> <a href="/borrowing">Cancel</a></p>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Borrowing Recording</h2>
+<a href="/borrowing/add">Record Borrowing Here</a> | <a href="/">Back to Menu</a>
+<table>
+<tr><th>Record #</th><th>Member ID</th><th>Book ID</th><th>Date Borrowed</th><th>Due Date</th><th>Date Returned</th><th>Status</th><th>Action</th></tr>
+{% for r in rows %}
+<tr>
+ <td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td><td>{{ r[3] }}</td><td>{{ r[4] }}</td><td>{{ r[5] }}</td><td>{{ r[6] }}</td>
+ <td>
+  {% if r[6] == "Borrowed" %}
+  <a href="/borrowing/return/{{ r[0] }}">Return</a> | <a href="/borrowing/cancel/{{ r[0] }}">Cancel</a>
+  {% endif %}
+ </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Borrowing Monitoring (Date Range)</h2>
+<a href="/">Back to Menu</a>
+<form method="get">
+ Date From: <input type="date" name="date_from" value="{{ date_from }}" required>
+ Date To: <input type="date" name="date_to" value="{{ date_to }}" required>
+ <button>Generate</button>
+</form>
+{% if date_from != "" %}
+<table>
+<tr><th>Record #</th><th>Member ID</th><th>Book</th><th>Date Borrowed</th><th>Due Date</th><th>Date Returned</th><th>Status</th><th>Fine</th></tr>
+{% for r in records %}
+<tr><td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td><td>{{ r[3] }}</td><td>{{ r[4] }}</td><td>{{ r[5] }}</td><td>{{ r[6] }}</td><td>{{ r[7] }}</td></tr>
+{% endfor %}
+</table>
+<p>Total Books Borrowed: {{ total_books }}<br>Total Fine: P{{ total_fine }}</p>
+<p>Date Generated: {{ today }}</p>
+{% endif %}
+{% endblock %}

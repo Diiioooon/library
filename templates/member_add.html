@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Add Member</h2>
+<p class="err">{{ error }}</p>
+<form method="post">
+ <label>Member ID</label><input type="number" name="memID" required>
+ <label>First Name</label><input name="memFName" required>
+ <label>Last Name</label><input name="memLName" required>
+ <label>Contact No.</label><input name="memContact">
+ <p><button>Save</button> <a href="/members">Cancel</a></p>
+</form>
+{% endblock %}

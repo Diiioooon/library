@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Edit Member</h2>
+<form method="post">
+ <label>Member ID</label><input name="memID" value="{{ m[0] }}" readonly>
+ <label>First Name</label><input name="memFName" value="{{ m[1] }}" required>
+ <label>Last Name</label><input name="memLName" value="{{ m[2] }}" required>
+ <label>Contact No.</label><input name="memContact" value="{{ m[3] }}">
+ <p><button>Save</button> <a href="/members">Cancel</a></p>
+</form>
+{% endblock %}
